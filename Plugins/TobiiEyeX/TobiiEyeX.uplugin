@@ -5,7 +5,7 @@
 	"VersionName" : "1.0",
 	"CreatedBy" : "Tobii Technology AB",
 	"CreatedByURL" : "https://github.com/TobiiTechnology/EyeXforUE4",
-	"EngineVersion" : 4.5,
+	"EngineVersion" : 4.9,
 	"Description" : "A plugin to enable Tobii EyeX functionality in Unreal Engine 4",
 	"Category" : "Input.Controller",
 	
