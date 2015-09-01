@@ -1,11 +1,11 @@
-// Copyright 2014 Tobii Technology AB. All Rights Reserved.
+﻿// Copyright 2014 Tobii Technology AB. All Rights Reserved.
 
 #include "EyeXPluginPrivatePCH.h"
 #include "EyeXBlueprintLibrary.h"
 
 IEyeXPlugin* UEyeXBlueprintLibrary::EyeX;
 
-UEyeXBlueprintLibrary::UEyeXBlueprintLibrary(const class FPostConstructInitializeProperties& PCIP)
+UEyeXBlueprintLibrary::UEyeXBlueprintLibrary(const class FObjectInitializer& PCIP)
 : Super(PCIP)
 {
 }

@@ -1,4 +1,4 @@
-// Copyright 2014 Tobii Technology AB. All Rights Reserved.
+﻿// Copyright 2014 Tobii Technology AB. All Rights Reserved.
 
 #include "EyeXPluginPrivatePCH.h"
 #include "EyeXPlayerController.h"
@@ -44,7 +44,7 @@ static void VisualizeHit(bool bVisualizeDetection, UWorld *World, const FHitResu
 #endif
 
 
-AEyeXPlayerController::AEyeXPlayerController(const FPostConstructInitializeProperties& PCIP)
+AEyeXPlayerController::AEyeXPlayerController(const FObjectInitializer& PCIP)
 : Super(PCIP)
 {
 	AEyeXPlayerController::StaticClass();
@@ -179,7 +179,7 @@ AEyeXActorBase* AEyeXPlayerController::FindFocusedActor(FHitResult& OutHit, cons
 		break;
 	}
 
-	OutHit = HitResult; 
+	OutHit = HitResult;
 	return EyeXActor; // use out param for actor as well, alternatively use hit actor in hit result (with cast). make the method const too.
 }
 
@@ -277,7 +277,7 @@ AEyeXActorBase* AEyeXPlayerController::FindBySweep(FHitResult& OutHit, const FSc
 	float CurrentDistance = DeltaDistance / 2;
 	FCollisionShape Shape;
 	AEyeXActorBase* EyeXActor = nullptr;
-	for (int i = 0; i < SweepIntervals; ++i)	
+	for (int i = 0; i < SweepIntervals; ++i)
 	{
 		const FVector End = Start + DeltaDirection;
 		const float Radius = (i == 0) ? 0.0f : TanFOVScaled * CurrentDistance; // Depends on the view frustrum, size of the screen and the distance.
@@ -292,7 +292,7 @@ AEyeXActorBase* AEyeXPlayerController::FindBySweep(FHitResult& OutHit, const FSc
 		Start = End;
 		CurrentDistance += DeltaDistance;
 	}
-	
+
 	VisualizeHit(bVisualizeDetection, World, OutHit, Shape.GetSphereRadius());
 	VisualizeGazePoint(bVisualizeDetection, World, Start);
 
@@ -346,7 +346,7 @@ AEyeXActorBase* AEyeXPlayerController::FindByFrustumIntersection(FHitResult& Out
 void AEyeXPlayerController::GetBoxCorners(const FVector2D& Center, const FVector2D& Size, FVector2D Corners[])
 {
 	auto HalfSize = Size / 2;
-	Corners[0] = FVector2D(Center.X - HalfSize.X, Center.Y - HalfSize.Y); // Upper Left Corner	
+	Corners[0] = FVector2D(Center.X - HalfSize.X, Center.Y - HalfSize.Y); // Upper Left Corner
 	Corners[1] = FVector2D(Center.X + HalfSize.X, Center.Y - HalfSize.Y); // Upper Right Corner
 	Corners[2] = FVector2D(Center.X + HalfSize.X, Center.Y + HalfSize.Y); // Lower Right Corner
 	Corners[3] = FVector2D(Center.X - HalfSize.X, Center.Y + HalfSize.Y); // Lower Left Corner

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "IEyeXPlugin.h"
+#include "EyeXTypes.h"
 #include "EyeXPlayerController.generated.h"
 
 class AEyeXActorBase;

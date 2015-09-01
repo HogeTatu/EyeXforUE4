@@ -1,18 +1,18 @@
-#include "EyeXSamples.h"
+﻿#include "EyeXSamples.h"
 #include "MyActor.h"
 
 
-AMyActor::AMyActor(const class FPostConstructInitializeProperties& PCIP)
+AMyActor::AMyActor(const class FObjectInitializer& PCIP)
 	: Super(PCIP)
 {
 
 }
 
-void AMyActor::GotGazeFocus()
+void AMyActor::GotGazeFocus_Implementation()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Someone is looking at me!"));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Someone is looking at me!"));
 }
 
-void AMyActor::LostGazeFocus()
+void AMyActor::LostGazeFocus_Implementation()
 {
 }

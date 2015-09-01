@@ -1,4 +1,4 @@
-// Copyright 2014 Tobii Technology AB. All Rights Reserved.
+﻿// Copyright 2014 Tobii Technology AB. All Rights Reserved.
 
 #pragma once
 
@@ -6,7 +6,7 @@
 #include "IEyeXPlugin.h"
 #include "EyeXActorBase.generated.h"
 
-/** 
+/**
  * The EyeXActorBase class is a base class for actors which can be interacted with using eye-gaze.
  * The GotGazeFocus event is triggered when the user is looking at the object
  * and LostGazeFocus is triggered when the user stops looking. Additionally
@@ -56,15 +56,15 @@ public:
 	 * Fires when this actor has received the focus of the users gaze. Requires no super call when overriding since it doesn't
 	 * do anything.
 	 */
-	UFUNCTION(BlueprintImplementableEvent, Category = "EyeX")
-	virtual void GotGazeFocus();
+	UFUNCTION(BlueprintNativeEvent, Category = "EyeX")
+	void GotGazeFocus();
 
 	/**
 	 * Fires when this actor has lost the focus of the users gaze. Requires no super call when overriding since it doesn't
 	 * do anything.
 	 */
-	UFUNCTION(BlueprintImplementableEvent, Category = "EyeX")
-	virtual void LostGazeFocus();
+	UFUNCTION(BlueprintNativeEvent, Category = "EyeX")
+	void LostGazeFocus();
 
 	/**
 	 * Check to see if this actor is focused by the users gaze.
@@ -72,7 +72,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category = "EyeX")
 	bool HasGazeFocus() const;
-	
+
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
 

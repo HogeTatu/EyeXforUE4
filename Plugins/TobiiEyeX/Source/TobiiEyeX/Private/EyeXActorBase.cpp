@@ -1,10 +1,10 @@
-// Copyright 2014 Tobii Technology AB. All Rights Reserved.
+﻿// Copyright 2014 Tobii Technology AB. All Rights Reserved.
 
 #include "EyeXPluginPrivatePCH.h"
 #include "EyeXActorBase.h"
 #include "EyeXPlayerController.h" // for the EyeXPlayerController check
 
-AEyeXActorBase::AEyeXActorBase(const class FPostConstructInitializeProperties& PCIP)
+AEyeXActorBase::AEyeXActorBase(const class FObjectInitializer& PCIP)
 : Super(PCIP)
 {
 	AEyeXActorBase::StaticClass();
@@ -149,6 +149,14 @@ bool AEyeXActorBase::IsWithinDistance() const
 	const bool bMaxDistance = MaxDistance == 0.0f ? true : DistanceToCamera <= MaxDistance;
 	const bool bMinDistance = MinDistance == 0.0f ? true : DistanceToCamera >= MinDistance;
 	return bMaxDistance && bMaxDistance;
+}
+
+void AEyeXActorBase::GotGazeFocus_Implementation()
+{
+}
+
+void AEyeXActorBase::LostGazeFocus_Implementation()
+{
 }
 
 bool AEyeXActorBase::HasGazeFocus() const
